@@ -19,7 +19,7 @@ app.get('/', function(req,res){
 });
 
 app.post('/', function(req, res){
-  var url = 'http://api.wunderground.com/api/93c780c5e1dadc42/conditions/q/' + req.body.zip + '.json';
+  var url = 'http://' + req.body.zip + '.json';
   request(url, function(err, response, body){
     body = JSON.parse(body);
     var temp = body.current_observation.temp_f;
