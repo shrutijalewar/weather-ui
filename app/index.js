@@ -4,6 +4,7 @@ var express = require('express');
 var app = express();
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+
 var request = require('request');
 
 app.set('views', __dirname + '/views');
@@ -20,7 +21,6 @@ app.get('/', function(req,res){
 
 app.post('/', function(req, res){
   var url = 'http://api.wunderground.com/api/467fe65116e04adf/conditions/q/' + req.body.zip + '.json';
- div(style="height:#{height}px;background-color:#{color}")
   request(url, function(err, response, body){
     body = JSON.parse(body);
     var temp = body.current_observation.temp_f;
